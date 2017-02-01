@@ -1,0 +1,52 @@
+<?php
+$ACCESS_LEVEL = 2; 
+$TITLE='Insert modela';
+	require '../lib/init.php';	
+	require '../modules/head.php';
+	
+ if (isset($_POST['akcija'])){
+	 
+	 $model = $_POST['model'];
+	 $marka = $_POST['marka'];
+	 
+	$upit = "INSERT INTO model (marka, model) VALUES ('$model', '$marka')" ;
+	$db->query($upit);
+	header ("Location:modeli_list.php"); die();
+	 
+	 
+	 
+ }
+	
+	
+?>
+<h1><a href="admin.php" >Admin</a></h1>
+		<a href="oglasi_list.php" class="btn btn-primary">Lista oglasa</a> <br /><br />
+		<a href="oglasi_insert.php" class="btn btn-primary">Unos novog oglasa</a> <br /><br />
+		<a href="modeli_insert.php" class="btn btn-primary">Unos novog modela</a><br /> <br /><br />
+		<a href="modeli_list.php" class="btn btn-primary">Lista modela</a><br /> <br /><br />
+ 
+	
+<h4>Unesite nov model automobila</h4>	
+	
+<form method="post" action="#">
+
+
+<br />
+	<input type="hidden" name="akcija">
+	Model:<br />
+	<input type="text" name="model"/><br />
+	Marka:<br />
+	<input type="text" name="marka"/>
+	<br />
+	<br />
+	<input type="submit" value="Unesi"/>
+	
+	
+</form>	
+<br />
+
+<a href="modeli_list.php">Nazad</a>
+
+
+
+</body></html>
